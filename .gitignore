@@ -1,0 +1,52 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ======================
+# Virtual environments
+# ======================
+venv/
+.env/
+.venv/
+
+# ======================
+# IDE
+# ======================
+.idea/
+.vscode/
+
+# ======================
+# Data files (heavy / generated)
+# ======================
+out/
+*.csv
+*.xlsx
+*.parquet
+
+# BUT keep sample data if needed
+!resources/*.csv
+
+# ======================
+# OS files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Logs
+# ======================
+*.log
+
+# ======================
+# Jupyter (if used later)
+# ======================
+.ipynb_checkpoints/
+
+# ======================
+# Misc
+# ======================
+*.tmp
+*.bak
