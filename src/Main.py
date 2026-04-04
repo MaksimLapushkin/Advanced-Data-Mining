@@ -1,14 +1,51 @@
-import pandas as pd
+import subprocess
+import sys
+from pathlib import Path
 
-file_path = r"C:\Users\maxal\.cache\kagglehub\datasets\mohankrishnathalla\global-ai-adoption-and-workforce-impact-dataset\versions\1\ai_company_adoption.csv"
+# =========================
+# PATHS
+# =========================
+BASE_DIR = Path(__file__).resolve().parent
 
-df = pd.read_csv(file_path)
+# =========================
+# HELPER
+# =========================
+def run_script(script_path):
+    print(f"\n{'='*60}")
+    print(f"RUNNING: {script_path.name}")
+    print(f"{'='*60}")
 
-small_df = df[["response_id", "company_size", "ai_adoption_stage"]].copy()
+    result = subprocess.run([sys.executable, str(script_path)])
 
-output_path = r"C:\Users\maxal\PycharmProjects\AdvancedDataMining\companysize_adoption_only.csv"
-small_df.to_csv(output_path, index=False, encoding="utf-8-sig")
+    if result.returncode != 0:
+        raise RuntimeError(f"Script failed: {script_path}")
 
-print("Saved to:", output_path)
-print(small_df.head())
-print(small_df.shape)
+# =========================
+# PIPELINE
+# =========================
+
+# ---- enterprise vs startup ----
+enterprise_prepare = BASE_DIR / "4ft-Miner" / "enterprise_vs_startup" / "prepare_enterprise_vs_startup_data.py"
+enterprise_4ft = BASE_DIR / "4ft-Miner" / "enterprise_vs_startup" / "4ft_enterprise_vs_startup_data.py"
+
+# ---- productivity ----
+productivity_prepare = BASE_DIR / "4ft-Miner" / "productivity" / "prepare_high_productivity.py"
+productivity_4ft = BASE_DIR / "4ft-Miner" / "productivity" / "4ft_high_productivity.py"
+
+# =========================
+# RUN ORDER
+# =========================
+
+if __name__ == "__main__":
+
+    # 1. Enterprise vs Startup
+    run_script(enterprise_prepare)
+    run_script(enterprise_4ft)
+
+    # 2. Productivity
+    run_script(productivity_prepare)
+    run_script(productivity_4ft)
+
+    print(f"\n{'='*60}")
+    print("ALL TASKS COMPLETED")
+    print(f"{'='*60}")
