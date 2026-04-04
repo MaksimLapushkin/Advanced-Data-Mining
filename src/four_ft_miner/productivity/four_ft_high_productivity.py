@@ -11,7 +11,7 @@ from cleverminer import cleverminer
 # ===============================
 BASE_DIR = Path(__file__).resolve().parents[3]
 
-FILE_PATH = BASE_DIR / "out" / "4ft-Miner" / "high_productivity_4ft.csv"
+FILE_PATH = BASE_DIR / "out" / "four_ft_miner" / "high_productivity_4ft.csv"
 
 TOP_N_GENERAL = 10          # How many normal rules should I show
 TOP_N_REPORT = 3            # How many best rules to suggest for a report

@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "..", ".."))
 
 INPUT_PATH = os.path.join(PROJECT_ROOT, "resources", "ai_company_adoption.csv")
-OUTPUT_DIR = os.path.join(PROJECT_ROOT, "out", "4ft-Miner")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "out", "four_ft_miner")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 OUTPUT_PATH = os.path.join(OUTPUT_DIR, "prepared_enterprise_vs_startup.csv")
 

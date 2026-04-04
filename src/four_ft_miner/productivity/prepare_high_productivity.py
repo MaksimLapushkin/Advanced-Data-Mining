@@ -78,7 +78,7 @@ df_final = df[[
 # SAVE OUTPUT
 # ===============================
 
-output_dir = os.path.join(PROJECT_ROOT, "out", "4ft-Miner")
+output_dir = os.path.join(PROJECT_ROOT, "out", "four_ft_miner")
 os.makedirs(output_dir, exist_ok=True)
 
 # Output file

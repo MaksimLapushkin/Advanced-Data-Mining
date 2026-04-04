@@ -13,7 +13,7 @@ from cleverminer import cleverminer
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "..", ".."))
 
-INPUT_PATH = os.path.join(PROJECT_ROOT, "out", "4ft-Miner", "prepared_enterprise_vs_startup.csv")
+INPUT_PATH = os.path.join(PROJECT_ROOT, "out", "four_ft_miner", "prepared_enterprise_vs_startup.csv")
 
 print("INPUT PATH:", INPUT_PATH)
 print("INPUT EXISTS:", os.path.exists(INPUT_PATH))
@@ -246,7 +246,7 @@ print()
 def print_wrapped(text, width=100):
     print("\n".join(textwrap.wrap(text, width=width)))
 cz_text = (
-    "Analýza pomocí 4ft-Miner ukázala, že podniky Enterprise a Startup se liší "
+    "Analýza pomocí four_ft_miner ukázala, že podniky Enterprise a Startup se liší "
     "v několika charakteristikách souvisejících s adopcí AI. Nejsilnější pravidla "
     "ukazují, že firmy typu Enterprise častěji vykazují přítomnost AI etické komise, "
     "vyšší rozpočet na AI a vyšší počet aktivních AI projektů. Další silná pravidla "
