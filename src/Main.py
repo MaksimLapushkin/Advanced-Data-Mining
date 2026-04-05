@@ -60,11 +60,45 @@ productivity_4ft = (
     / "four_ft_high_productivity.py"
 )
 
+# ---- CF Miner: workforce balance ----
+cf_wb_prepare = (
+    BASE_DIR
+    / "cf_miner"
+    / "workforce_balance"
+    / "prepare_cf_workforce_balance.py"
+)
+
+cf_wb_miner = (
+    BASE_DIR
+    / "cf_miner"
+    / "workforce_balance"
+    / "cf_workforce_balance.py"
+)
+
+# ---- CF Miner: employee satisfaction ----
+cf_employee_satisfaction_prepare = (
+    BASE_DIR
+    / "cf_miner"
+    / "employee_satisfaction"
+    / "prepare_cf_employee_satisfaction.py"
+)
+
+cf_employee_satisfaction_miner = (
+    BASE_DIR
+    / "cf_miner"
+    / "employee_satisfaction"
+    / "cf_employee_satisfaction.py"
+)
+
 
 # =========================
 # MAIN PIPELINE
 # =========================
 def main() -> None:
+    # =====================
+    # 4FT MINER
+    # =====================
+
     # 1. Enterprise vs Startup
     run_script(enterprise_prepare)
     run_script(enterprise_4ft)
@@ -72,6 +106,18 @@ def main() -> None:
     # 2. High Productivity
     run_script(productivity_prepare)
     run_script(productivity_4ft)
+
+    # =====================
+    # CF MINER
+    # =====================
+
+    # 3. Workforce Balance
+    run_script(cf_wb_prepare)
+    run_script(cf_wb_miner)
+
+    # 4. employee satisfaction
+    run_script(cf_employee_satisfaction_prepare)
+    run_script(cf_employee_satisfaction_miner)
 
     print("\n" + "=" * 80)
     print("ALL TASKS COMPLETED")
